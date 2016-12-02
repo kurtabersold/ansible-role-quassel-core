@@ -22,3 +22,6 @@
 - name: Setup ufw firewall rule
   ufw: rule=allow port={{ quasselcore_port }} proto=tcp
   when: quasselcore_setup_ufw
+
+- name: Certificate Renewal Script # TODO variable for path to renew scripts
+  copy: src=files/quasselcore.sh dest=/usr/local/renew/renew.d/quasselcore owner=root group=root mode=0774 force=yes
